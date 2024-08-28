@@ -83,6 +83,9 @@ h1 {
     background-color:#EEE;
     border-radius:100px;
     box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
+    background-image: url();
+    background-size: cover;
+    background-position: center;
 }
 .camisa-item--img img {
     width:100%;
@@ -156,7 +159,7 @@ h1 {
 }
 .camisaBig img {
     height:400px;
-    width:auto;
+    width:350px;
 }
 .camisaInfo {
     flex:1;
