@@ -1,4 +1,4 @@
-let camisaJson = [
+let shirtJson = [
     {id:1, name:'Mussarela', img:'assets/images/camisa1.jpg', price:20.19, sizes:['68x51cm', '70x53cm', '71x56cm'], description:'Descrição da camisa em mais de uma linha muito legal bem interessante'},
     {id:2, name:'Calabresa', img:'assets/images/camisa2.jpg', price:18.00, sizes:['68x51cm', '70x53cm', '71x56cm'], description:'Descrição da camisa em mais de uma linha muito legal bem interessante'},
     {id:3, name:'Quatro Queijos', img:'assets/images/camisa3.jpg', price:17.45, sizes:['68x51cm', '70x53cm', '71x56cm'], description:'Descrição da camisa em mais de uma linha muito legal bem interessante'},
