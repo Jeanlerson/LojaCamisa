@@ -1,4 +1,6 @@
 let modalQt = 1
+let cart = []
+let modalKey = 0
 
 const doc = (e) => document.querySelector(e)
 const docAll = (e) => document.querySelectorAll(e)
@@ -16,6 +18,7 @@ shirtJson.map((item, index) => {
         e.preventDefault()
         let key = e.target.closest('.shirt-item').getAttribute('data-key')
         modalQt = 1
+        modalKey = key
 
         doc('.shirtBig img').src = shirtJson[key].img
         doc('.shirtInfo h1').innerHTML = shirtJson[key].name
@@ -68,4 +71,23 @@ docAll('.shirtInfo--size').forEach((size, sizeIndex) => {
         doc('.shirtInfo--size.selected').classList.remove('selected')
         size.classList.add('selected')
     })
+})
+
+doc('.shirtInfo--addButton').addEventListener('click', () => {
+    let size = parseInt(doc('.shirtInfo--size.selected').getAttribute('data-key'))
+    let identifier = shirtJson[modalKey].id+'@'+size
+    let key = cart.findIndex((item) => item.identifier == identifier)
+    
+    if(key > -1) {
+        cart[key].qt += modalQt
+    } else {
+        cart.push({
+            identifier,
+            id:shirtJson[modalKey].id,
+            size,
+            qt:modalQt
+        })
+    }
+
+    closedModal()
 })
