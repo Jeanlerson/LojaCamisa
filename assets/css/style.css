@@ -61,23 +61,23 @@ main {
 h1 {
     font-family:'Hepta Slab', Helvetica, Arial;
 }
-.camisa-area {
+.shirt-area {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.camisa-item {
+.shirt-item {
     text-align: center;
     max-width:250px;
     font-family:'Hepta Slab', Helvetica, Arial;
     margin:0 auto 50px auto;
 }
-.camisa-item a {
+.shirt-item a {
     display:flex;
     flex-direction: column;
     align-items:center;
     text-decoration: none;
 }
-.camisa-item--img {
+.shirt-item--img {
     width:200px;
     height:200px;
     background-color:#EEE;
@@ -87,11 +87,11 @@ h1 {
     background-size: cover;
     background-position: center;
 }
-.camisa-item--img img {
+.shirt-item--img img {
     width:100%;
     height:auto;
 }
-.camisa-item--add {
+.shirt-item--add {
     width:50px;
     height:50px;
     line-height:50px;
@@ -104,27 +104,27 @@ h1 {
     margin-top:-25px;
     transition:all ease .2s;
 }
-.camisa-item a:hover .camisa-item--add {
+.shirt-item a:hover .shirt-item--add {
     background-color:#244c88;
 }
-.camisa-item--price {
+.shirt-item--price {
     font-size:15px;
     color:#333;
     margin-top:5px;
 }
-.camisa-item--name {
+.shirt-item--name {
     font-size:20px;
     font-weight: bold;
     color:#000;
     margin-top:5px;
 }
-.camisa-item--desc {
+.shirt-item--desc {
     font-size:13px;
     color:#555;
     margin-top:10px;
 }
 
-.camisaWindowArea {
+.shirtWindowArea {
     position:fixed;
     left:0;
     top:0;
@@ -137,7 +137,7 @@ h1 {
     align-items: center;
     overflow-y:auto;
 }
-.camisaWindowBody {
+.shirtWindowBody {
     width:900px;
     background-color:#FFF;
     border-radius:10px;
@@ -145,49 +145,49 @@ h1 {
     display:flex;
     margin:20px 0px;
 }
-.camisaBig {
+.shirtBig {
     flex:1;
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.camisaBig--back {
+.shirtBig--back {
     position:absolute;
     width:30px;
     height:30px;
     background-color:#000;
 }
-.camisaBig img {
+.shirtBig img {
     height:400px;
     width:350px;
 }
-.camisaInfo {
+.shirtInfo {
     flex:1;
     font-family:'Hepta Slab', Helvetica, Arial;
     padding-bottom:50px;
 }
-.camisaInfo h1 {
+.shirtInfo h1 {
     margin-top:50px;
 }
-.camisaInfo .camisaInfo--desc {
+.shirtInfo .shirtInfo--desc {
     font-size:15px;
     color:#999;
     margin-top:10px;
     font-family:'Lato',Helvetica,Arial;
 }
-.camisaInfo--sector {
+.shirtInfo--sector {
     color:#CCC;
     text-transform: uppercase;
     font-size:14px;
     margin-top:30px;
     margin-bottom:10px;
 }
-.camisaInfo--sizes {
+.shirtInfo--sizes {
     display:inline-flex;
     border-radius:10px;
     overflow:hidden;
 }
-.camisaInfo--size {
+.shirtInfo--size {
     padding:10px 15px;
     color:#000;
     background-color:#EEE;
@@ -195,36 +195,36 @@ h1 {
     font-weight: bold;
     cursor:pointer;
 }
-.camisaInfo--size:hover {
+.shirtInfo--size:hover {
     background-color:#CCC;
 }
-.camisaInfo--size.selected {
+.shirtInfo--size.selected {
     background-color:#399ade;
     color:#FFF;
 }
-.camisaInfo--size.selected span {
+.shirtInfo--size.selected span {
     color:#D6D6D6;
 }
-.camisaInfo--size span {
+.shirtInfo--size span {
     font-size:12px;
     color:#999;
     font-weight: normal;
 }
-.camisaInfo--price {
+.shirtInfo--price {
     display:flex;
     align-items:center;
 }
-.camisaInfo--actualPrice {
+.shirtInfo--actualPrice {
     font-size:28px;
     margin-right:30px;
 }
-.camisaInfo--qtarea {
+.shirtInfo--qtarea {
     display:inline-flex;
     background-color:#EEE;
     border-radius:10px;
     height:30px;
 }
-.camisaInfo--qtarea button {
+.shirtInfo--qtarea button {
     border:0;
     background-color:transparent;
     font-size:17px;
@@ -233,14 +233,14 @@ h1 {
     padding:0px 10px;
     color:#333;
 }
-.camisaInfo--qt {
+.shirtInfo--qt {
     line-height: 30px;
     font-size: 12px;
     font-weight: bold;
     padding: 0px 5px;
     color:#000;
 }
-.camisaInfo--addButton {
+.shirtInfo--addButton {
     margin-top:30px;
     padding:20px 30px;
     border-radius:20px;
@@ -250,14 +250,15 @@ h1 {
     cursor:pointer;
     margin-right:30px;
 }
-.camisaInfo--addButton:hover {
+.shirtInfo--addButton:hover {
     background-color:#32a345;
 }
-.camisaInfo--cancelButton {
+.shirtInfo--cancelButton {
     display:inline-block;
     cursor:pointer;
+    color: #f00;
 }
-.camisaInfo--cancelMobileButton {
+.shirtInfo--cancelMobileButton {
     display:none;
     height:40px;
     text-align:center;
@@ -334,7 +335,7 @@ h1 {
 }
 
 @media (max-width:1000px) {
-    .camisa-area {
+    .shirt-area {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -343,10 +344,10 @@ h1 {
     body {
         flex-direction: column;
     }
-    .camisa-area {
+    .shirt-area {
         display:block;
     }
-    .camisa-item {
+    .shirt-item {
         max-width:100%;
     }
     header {
@@ -376,12 +377,12 @@ h1 {
         display:block;
     }
 
-    .camisaWindowArea {
+    .shirtWindowArea {
         justify-content:flex-start;
         align-items: flex-start;
     }
 
-    .camisaWindowBody {
+    .shirtWindowBody {
         width:100vw;
         display:block;
         padding:20px;
@@ -390,37 +391,37 @@ h1 {
         margin:0;
     }
 
-    .camisaBig img {
+    .shirtBig img {
         width: 75%;
         height: auto;
     }
 
-    .camisaInfo h1 {
+    .shirtInfo h1 {
         margin-top:20px;
     }
 
-    .camisaInfo--qtarea {
+    .shirtInfo--qtarea {
         height:60px;
     }
-    .camisaInfo--qtarea button {
+    .shirtInfo--qtarea button {
         font-size:25px;
         padding:0px 25px;
     }
-    .camisaInfo--qt {
+    .shirtInfo--qt {
         line-height: 60px;
         font-size:20px;
     }
-    .camisaInfo--addButton {
+    .shirtInfo--addButton {
         font-size:20px;
         display:block;
         text-align:center;
         margin:30px auto;
     }
 
-    .camisaInfo--cancelButton {
+    .shirtInfo--cancelButton {
         display:none;
     }
-    .camisaInfo--cancelMobileButton {
+    .shirtInfo--cancelMobileButton {
         display:block;
     }
 }
