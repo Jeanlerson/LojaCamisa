@@ -73,6 +73,7 @@ docAll('.shirtInfo--size').forEach((size, sizeIndex) => {
     })
 })
 
+//SHOPPING CART
 doc('.shirtInfo--addButton').addEventListener('click', () => {
     let size = parseInt(doc('.shirtInfo--size.selected').getAttribute('data-key'))
     let identifier = shirtJson[modalKey].id+'@'+size
@@ -89,5 +90,19 @@ doc('.shirtInfo--addButton').addEventListener('click', () => {
         })
     }
 
+    updateCart()
     closedModal()
-})
+});
+
+function updateCart() {
+    if(cart.length > 0) {
+        doc('aside').classList.add('show');
+        for(let i in cart) {
+            let shirtItem = shirtJson.find((item) => item.id == cart[i].id)
+
+            console.log(shirtItem)
+        }
+    } else {
+        doc('aside').classList.remove('show');
+    };
+};
