@@ -97,10 +97,32 @@ doc('.shirtInfo--addButton').addEventListener('click', () => {
 function updateCart() {
     if(cart.length > 0) {
         doc('aside').classList.add('show');
-        for(let i in cart) {
-            let shirtItem = shirtJson.find((item) => item.id == cart[i].id)
+        doc('.cart').innerHTML = '';
 
-            console.log(shirtItem)
+        for(let i in cart) {
+            let shirtItem = shirtJson.find((item) => item.id == cart[i].id);
+            let cartItem = doc('.models .cart--item').cloneNode(true);
+
+            let shirtSizeName;
+            switch(cart[i].size) {
+                case 0:
+                    shirtSizeName = 'P';
+                    break;
+                case 1:
+                    shirtSizeName = 'M';
+                    break;
+                case 2:
+                    shirtSizeName = 'G';
+                    break;
+            }
+
+            let shirtName = `${shirtItem.name} (${shirtSizeName})`
+
+            cartItem.querySelector('img').src = shirtItem.img;
+            cartItem.querySelector('.cart--item-nome').innerHTML = shirtName;
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;
+
+            doc('.cart').append(cartItem)
         }
     } else {
         doc('aside').classList.remove('show');
