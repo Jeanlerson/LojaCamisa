@@ -99,8 +99,14 @@ function updateCart() {
         doc('aside').classList.add('show');
         doc('.cart').innerHTML = '';
 
+        let subtotal = 0;
+        let discount = 0;
+        let total = 0;
+
         for(let i in cart) {
             let shirtItem = shirtJson.find((item) => item.id == cart[i].id);
+            subtotal += shirtItem.price *  cart[i].qt;
+
             let cartItem = doc('.models .cart--item').cloneNode(true);
 
             let shirtSizeName;
@@ -114,16 +120,35 @@ function updateCart() {
                 case 2:
                     shirtSizeName = 'G';
                     break;
-            }
+            };
 
             let shirtName = `${shirtItem.name} (${shirtSizeName})`
 
             cartItem.querySelector('img').src = shirtItem.img;
             cartItem.querySelector('.cart--item-nome').innerHTML = shirtName;
             cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', () => {
+                if(cart[i].qt > 1) {
+                    cart[i].qt--;
+                } else {
+                    cart.splice(i, 1);
+                };
+                updateCart();
+            });
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', () => {
+                cart[i].qt++;
+                updateCart();
+            });
 
-            doc('.cart').append(cartItem)
-        }
+            doc('.cart').append(cartItem);
+        };
+
+        discount = subtotal * 0.1;
+        total = subtotal - discount;
+
+        doc('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
+        doc('.desconto span:last-child').innerHTML = `R$ ${discount.toFixed(2)}`;
+        doc('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
     } else {
         doc('aside').classList.remove('show');
     };
