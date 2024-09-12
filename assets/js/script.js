@@ -94,7 +94,18 @@ doc('.shirtInfo--addButton').addEventListener('click', () => {
     closedModal()
 });
 
+doc('.menu-openner').addEventListener('click', () => {
+    if(cart.length > 0) {
+        doc('aside').style.left = '0';
+    }
+});
+doc('.menu-closer').addEventListener('click', () => {
+    doc('aside').style.left = '100vw'
+})
+
 function updateCart() {
+    doc('.menu-openner span').innerHTML = cart.length;
+
     if(cart.length > 0) {
         doc('aside').classList.add('show');
         doc('.cart').innerHTML = '';
@@ -151,5 +162,6 @@ function updateCart() {
         doc('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
     } else {
         doc('aside').classList.remove('show');
+        doc('aside').style.left = '100vw';
     };
 };
